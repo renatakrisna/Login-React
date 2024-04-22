@@ -1,36 +1,22 @@
 import { View, Image, Button, StyleSheet, TextInput } from "react-native";
 import React, { useEffect, useState } from "react";
 import { API_URL, useAuth } from "../context/AuthContext";
-import axios from "axios";
+import { handleLogin, handleSignIn } from "../context/loginController";
 
-const Login = () => {
+
+const Login = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState ('');
     const {onLogin, onRegister} = useAuth();
 
-    useEffect(() => {
-        const testCall = async () => {
-            const result = await axios.get(`${API_URL}/users`);
-            console.log("~ file: Login.txs:16 ~ testcall ~ result:", result)
-        }
-        testCall();
-    }, [])
 
     const login = async () => {
-        const result = await onLogin!(email, password);
-        if (result && result.error){
-            alert(result.msg);
-        }
+        handleLogin(email, password, navigation );
     };
 
     // Chamamos automaticamente o login após um registro bem-sucedido
     const register = async () => {
-        const result = await onRegister!(email, password);
-        if (result && result.error){
-            alert(result.msg);
-        } else {
-            login();
-        }
+
     };
     
     return (

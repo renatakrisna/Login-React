@@ -5,11 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './app/screens/Login';
 import Home from './app/screens/Home';
-// import firestore from '@react-native-firebase/firestore';
-
-// firestore();
-
-// AppRegistry.registerComponent(appName, () => App);
 
 const Stack = createNativeStackNavigator();
 

@@ -10,7 +10,7 @@ interface AuthProps {
 }
 
 const TOKEN_KEY = 'my-jwt';
-export const API_URL = 'https://localhost:5000';
+export const API_URL = 'https://api.developbetterapps.com/users';
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: any) => {
             return await axios.post(`${API_URL}/users`, { email, password});
         }   catch (e) {
             return { error: true, msg: (e as any).response.data.msg };
-        }
+        };
     };
     
     const login = async (email: string, password: string) => {
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }: any) => {
             return result;            
         }   catch (e) {
             return { error: true, msg: (e as any).response.data.msg };
-        }
+        };
     };
     
     const logout = async () => {
