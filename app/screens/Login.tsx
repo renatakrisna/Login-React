@@ -16,7 +16,7 @@ const Login = ({navigation}) => {
 
     // Chamamos automaticamente o login após um registro bem-sucedido
     const register = async () => {
-
+        handleSignIn(email, password, navigation );
     };
     
     return (
@@ -26,7 +26,7 @@ const Login = ({navigation}) => {
             <TextInput style={styles.input} placeholder="Email" onChangeText={(text:string) => setEmail(text)} value={email}/>
             <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} onChangeText={(text:string) => setPassword(text)} value={password}/>
             <Button onPress={login} title="Sign in"/>
-            <Button onPress={register} title="Create Account" />
+            <Button onPress={register} title="Criar Conta" />
         </View>
     </View>
     );
